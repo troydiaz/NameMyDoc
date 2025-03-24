@@ -4,7 +4,7 @@
 
 NameMyDoc uses machine learning and natural language processing to intelligently classify and rename scanned documents, making document management faster and smarter.
 
-**Link:** namemydoc.vercel.app/
+**Link:** [namemydoc.vercel.app/](https://name-my-doc.vercel.app/)
 
 ## Tech Stack
 
