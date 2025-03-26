@@ -1,6 +1,3 @@
-import {useState} from 'react'
-import {Link} from 'react-router-dom'
-
 const Instructions = () => {
     return (
         <header className ="text-black font-inter flex flex-row justify-evenly py-15 space-x-10">
