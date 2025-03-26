@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/header/Header'
 import Instructions from './components/instructions/Instructions'
+import Documentation from './components/documentation/Documentation'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/instructions" element={<Instructions />} />
+          <Route path="/documentation" element={<Documentation />} />
         </Routes>
       </main>
     </BrowserRouter>
