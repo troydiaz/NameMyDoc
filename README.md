@@ -24,7 +24,7 @@ NameMyDoc uses machine learning and natural language processing to intelligently
 
 ## Features
 - Upload scanned document images or PDFs
-- Automatically extract text using OCR (coming soon)
+- Automatically extract text using OCR 
 - Predict document type and rename based on content
 - Intuitive UI for reviewing and renaming files
 - Great for bulk batches to be renamed
