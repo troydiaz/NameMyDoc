@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/header/Header'
 import Instructions from './components/instructions/Instructions'
 import Documentation from './components/documentation/Documentation'
+import About from './components/about/About'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/instructions" element={<Instructions />} />
           <Route path="/documentation" element={<Documentation />} />
+          <Route path="/about" element={<About/>} />
         </Routes>
       </main>
     </BrowserRouter>
