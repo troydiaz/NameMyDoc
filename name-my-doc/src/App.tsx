@@ -8,7 +8,6 @@ import About from './components/about/About'
 function App() {
 
   return (
-    
     <BrowserRouter>
       <div className='min-h0screen bg-white pt-12 flex flex-col'>
         <Header />
