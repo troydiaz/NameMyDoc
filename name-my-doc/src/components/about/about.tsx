@@ -3,7 +3,7 @@ const About = () => {
         <header>
             <div className ="flex justify-evenly space-x-4 py-15">
                 <div>
-                    <img className="w-160 rounded-lg" src="./troy.jpg">
+                    <img className="w-160 rounded-lg" src="/troy.jpg">
                     </img>
                 </div>
                 <div className ="mx-auto px-4 text-left">
