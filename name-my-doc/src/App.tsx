@@ -3,7 +3,7 @@ import './App.css'
 import Header from './components/header/Header'
 import Instructions from './components/instructions/Instructions'
 import Documentation from './components/documentation/Documentation'
-import About from './components/about/About'
+import About from './components/about/About.tsx'
 
 function App() {
 
