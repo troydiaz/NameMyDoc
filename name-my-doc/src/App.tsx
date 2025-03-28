@@ -3,7 +3,7 @@ import './App.css'
 import Header from './components/header/Header'
 import Instructions from './components/instructions/Instructions'
 import Documentation from './components/documentation/Documentation'
-import About from './components/about/About'
+import AboutMe from './components/aboutme/AboutMe'
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/instructions" element={<Instructions />} />
           <Route path="/documentation" element={<Documentation />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/aboutme" element={<AboutMe/>} />
         </Routes>
       </main>
     </BrowserRouter>
