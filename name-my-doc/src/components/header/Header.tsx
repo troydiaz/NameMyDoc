@@ -8,10 +8,14 @@ const Header = () => {
                     NameMyDoc
                 </Link>
             </div>
+
             <nav className="flex space-x-4 ml-auto">
+                {/* Adapted from https://pagedone.io/docs/hover-effect hovering line effect */}
                 <Link to="/Instructions">
-                    Upload
+                    <span>Upload</span>
+                    {/* <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span> */}
                 </Link>
+
                 <Link to="/Instructions">
                     Instructions
                 </Link>

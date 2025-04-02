@@ -9,16 +9,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='min-h0screen bg-white pt-12 flex flex-col'>
-        <Header />
+      <div className ="antialiased">
+        <div className='min-h-screen bg-white pt-12 flex flex-col'>
+          <Header />
+        </div>
+        <main>
+          <Routes>
+            <Route path="/instructions" element={<Instructions />} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/aboutme" element={<AboutMe/>} />
+          </Routes>
+        </main>
       </div>
-      <main>
-        <Routes>
-          <Route path="/instructions" element={<Instructions />} />
-          <Route path="/documentation" element={<Documentation />} />
-          <Route path="/aboutme" element={<AboutMe/>} />
-        </Routes>
-      </main>
     </BrowserRouter>
   )
 }

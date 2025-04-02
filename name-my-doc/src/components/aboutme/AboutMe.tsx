@@ -6,7 +6,7 @@ const About = () => {
                     <img className="w-160 rounded-lg" src="/troy.jpg">
                     </img>
                 </div>
-                <div className ="mx-auto px-4 text-left">
+                <div className ="container sm px-4 text-left">
                     <div className ="font-bold text-left text-5xl">
                         Hello 🤙 I'm Troy Diaz.
                     </div>
@@ -20,8 +20,13 @@ const About = () => {
                         Follow me on my socials!
                     </div>
                     <div className = "font-normal py-5">
-                        My LinkedIn: <a href="www.linkedin.com/in/troykvdiaz">www.linkedin.com/in/troykvdiaz</a> <br></br><br></br>
-                        My GitHub: <a href="https://github.com/troydiaz">https://github.com/troydiaz</a>
+                        {/* Adapted from https://flowbite.com/docs/components/buttons/ tailwindcss button */}
+                        <button type="button" className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4
+                         focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><a href="https://www.linkedin.com/in/troy-d-9084251aa/">LinkedIn</a></button>
+                        <br>
+                        </br>
+                        <button type="button" className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4
+                         focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><a href="https://github.com/troydiaz">GitHub</a></button>
                     </div>
                 </div>
             </div>
