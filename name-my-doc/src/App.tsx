@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className ="antialiased">
-        <div className='min-h-screen bg-white pt-12 flex flex-col'>
+        <div className='min-h0-screen bg-white pt-12 flex flex-col'>
           <Header />
         </div>
         <main>
