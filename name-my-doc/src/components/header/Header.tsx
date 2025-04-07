@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import { hoverButtonClass } from '../styles/classNames'
 
 const Header = () => {
     return (
@@ -10,20 +11,27 @@ const Header = () => {
             </div>
 
             <nav className="flex space-x-4 ml-auto">
-                {/* Adapted from https://pagedone.io/docs/hover-effect hovering line effect */}
-                <Link to="/Instructions">
-                    <span>Upload</span>
-                    {/* <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span> */}
+            <Link to="/Instructions" className="relative group">
+                    <span>Home</span>
+                    <span className={hoverButtonClass}></span>
                 </Link>
 
-                <Link to="/Instructions">
-                    Instructions
+                <Link to="/Instructions" className="relative group">
+                    <span>Upload</span>
+                    <span className={hoverButtonClass}></span>
                 </Link>
-                <Link to="/Documentation">
-                    Documentation
+
+                <Link to="/Instructions" className="relative group">
+                    <span>Instructions</span>
+                    <span className={hoverButtonClass}></span>
                 </Link>
-                <Link to="/AboutMe">
-                    About Me
+                <Link to="/Documentation" className="relative group">
+                    <span>Documentation</span>
+                    <span className={hoverButtonClass}></span>
+                </Link>
+                <Link to="/AboutMe" className="relative group">
+                    <span>About Me</span>
+                    <span className={hoverButtonClass}></span>
                 </Link>
             </nav>
         </header>
