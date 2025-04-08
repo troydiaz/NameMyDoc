@@ -17,7 +17,7 @@ const Documentation = () => {
                 <br></br>
                 Sentence Transformers: <a href= "https://www.sbert.net/docs/sentence_transformer/pretrained_models.html">https://www.sbert.net/docs/sentence_transformer/pretrained_models.html</a>
                 <br></br>
-                Kaggle Dataset: <a href= "https://www.sbert.net/docs/sentence_transformer/pretrained_models.html">https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive</a>
+                Kaggle Dataset: <a href= "https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive">https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive</a>
                 </span>
             </div>
 

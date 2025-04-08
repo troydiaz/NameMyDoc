@@ -4,6 +4,8 @@ import Header from './components/header/Header'
 import Instructions from './components/instructions/Instructions'
 import Documentation from './components/documentation/Documentation'
 import AboutMe from './components/aboutme/AboutMe'
+import Home from './components/home/Home'
+import Upload from './components/upload/Upload'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
             <Route path="/instructions" element={<Instructions />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/aboutme" element={<AboutMe/>} />
+            <Route path="/home" element={<Home/>} />
+            <Route path="/upload" element={<Upload/>} />
           </Routes>
         </main>
       </div>

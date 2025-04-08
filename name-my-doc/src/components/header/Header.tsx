@@ -5,18 +5,18 @@ const Header = () => {
     return (
         <header className ="text-black font-inter flex flex-row justify-evenly items-center">
             <div className="text-xl font-bold">
-                <Link to="/">
+                <Link to="/Home">
                     NameMyDoc
                 </Link>
             </div>
 
             <nav className="flex space-x-4 ml-auto">
-            <Link to="/Instructions" className="relative group">
+                <Link to="/Home" className="relative group">
                     <span>Home</span>
                     <span className={hoverButtonClass}></span>
                 </Link>
 
-                <Link to="/Instructions" className="relative group">
+                <Link to="/Upload" className="relative group">
                     <span>Upload</span>
                     <span className={hoverButtonClass}></span>
                 </Link>
