@@ -1,6 +1,6 @@
 const Instructions = () => {
     return (
-        <header className ="text-black font-inter flex flex-row justify-evenly py-15 space-x-10">
+        <header className ="text-black font-inter flex flex-wrap justify-center gap-6 py-15 space-x-10">
             <div className="flex flex-col items-start box-border h-155 w-100 p-4 rounded-lg bg-gray-50">
                 <span className ="font-bold text-left text-5xl">
                     Ensure Correct File Type
