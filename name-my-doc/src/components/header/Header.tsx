@@ -1,41 +1,66 @@
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { hoverButtonClass } from '../styles/classNames'
+import { Menu, X } from 'lucide-react' // for hamburger icon
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen)
+    }
+
+    const closeMenu = () => {
+        setIsOpen(false)
+    }
+
+    const links = [
+        { label: 'Home', path: '/Home' },
+        { label: 'Upload', path: '/Upload' },
+        { label: 'Instructions', path: '/Instructions' },
+        { label: 'Documentation', path: '/Documentation' },
+        { label: 'About Me', path: '/AboutMe' },
+    ]
+
     return (
-        <header className ="text-black font-inter flex flex-row justify-evenly items-center">
+        <header className="relative text-black font-inter flex items-center justify-between">
             <div className="text-xl font-bold">
-                <Link to="/Home">
-                    NameMyDoc
-                </Link>
+                <Link to="/Home">NameMyDoc</Link>
             </div>
 
-            <nav className="flex space-x-4 ml-auto">
-                <Link to="/Home" className="relative group">
-                    <span>Home</span>
-                    <span className={hoverButtonClass}></span>
-                </Link>
+            {/* Hamburger for mobile */}
+            <button className="md:hidden" onClick={toggleMenu}>
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
 
-                <Link to="/Upload" className="relative group">
-                    <span>Upload</span>
-                    <span className={hoverButtonClass}></span>
-                </Link>
-
-                <Link to="/Instructions" className="relative group">
-                    <span>Instructions</span>
-                    <span className={hoverButtonClass}></span>
-                </Link>
-                <Link to="/Documentation" className="relative group">
-                    <span>Documentation</span>
-                    <span className={hoverButtonClass}></span>
-                </Link>
-                <Link to="/AboutMe" className="relative group">
-                    <span>About Me</span>
-                    <span className={hoverButtonClass}></span>
-                </Link>
+            {/* Desktop menu */}
+            <nav className="hidden md:flex space-x-6">
+                {links.map(link => (
+                    <Link key={link.path} to={link.path} className="relative group">
+                        <span>{link.label}</span>
+                        <span className={hoverButtonClass}></span>
+                    </Link>
+                ))}
             </nav>
+
+            {/* Mobile dropdown */}
+            {isOpen && (
+                <div className="absolute top-full left-0 right-0 bg-white z-20 flex flex-col items-center py-4 space-y-4 md:hidden">
+                    {links.map(link => (
+                        <Link
+                            key={link.path}
+                            to={link.path}
+                            className="relative group"
+                            onClick={closeMenu}
+                        >
+                            <span>{link.label}</span>
+                            <span className={hoverButtonClass}></span>
+                        </Link>
+                    ))}
+                </div>
+            )}
         </header>
-    );
+    )
 }
 
 export default Header
