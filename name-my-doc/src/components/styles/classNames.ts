@@ -19,4 +19,19 @@ export const gradientButtonClass = `
   text-sm px-5 py-2.5 
   text-center me-2 mb-2 
   transition-all duration-300
+  cursor-pointer
 `;
+
+export const gradientHoverTextClass = `
+text-black 
+hover:text-transparent 
+hover:bg-clip-text 
+hover:bg-gradient-to-r 
+hover:from-gray-500 
+hover:via-gray-700 
+hover:to-gray-900 
+font-bold text-xl 
+cursor-pointer
+`;
+
+

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { hoverButtonWrapper, hoverButtonUnderline } from '../styles/classNames'
+import { gradientButtonClass } from '../styles/classNames'
 
 const About = () => {
     return (
@@ -30,15 +30,13 @@ const About = () => {
               <p className="mb-5">Follow me on my socials!</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://www.linkedin.com/in/troy-d-9084251aa/">
-                <button className={clsx(hoverButtonWrapper)}>
-                <span className={clsx(hoverButtonUnderline)}></span>
+                <button className={clsx(gradientButtonClass)}>
                 LinkedIn
                 </button>
 
                 </a>
                 <a href="https://github.com/troydiaz">
-                <button className={clsx(hoverButtonWrapper)}>
-                <span className={clsx(hoverButtonUnderline)}></span>
+                <button className={clsx(gradientButtonClass)}>
                 GitHub
                 </button>
                 </a>

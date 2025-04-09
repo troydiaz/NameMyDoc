@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { hoverButtonClass } from '../styles/classNames'
+import { hoverButtonClass, gradientHoverTextClass } from '../styles/classNames'
 import { Menu, X } from 'lucide-react' // for hamburger icon
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <header className="relative text-black font-inter flex items-center justify-between">
-            <div className="text-xl font-bold">
+            <div className={gradientHoverTextClass}>
                 <Link to="/Home">NameMyDoc</Link>
             </div>
 
