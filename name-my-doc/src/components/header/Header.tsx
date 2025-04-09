@@ -29,7 +29,7 @@ const Header = () => {
             </div>
 
             {/* Hamburger for mobile */}
-            <button className="md:hidden" onClick={toggleMenu}>
+            <button className="md:hidden cursor-pointer" onClick={toggleMenu}>
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 
