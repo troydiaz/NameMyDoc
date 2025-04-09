@@ -1,7 +1,7 @@
 const Instructions = () => {
     return (
-        <header className ="text-black font-inter flex flex-wrap justify-center gap-6 py-15 space-x-10">
-            <div className="flex flex-col items-start box-border h-155 w-100 p-4 rounded-lg bg-gray-50">
+        <header className ="text-black font-inter flex flex-wrap justify-center gap-3 py-15">
+            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
                 <span className ="font-bold text-left text-5xl">
                     Ensure Correct File Type
                 </span>
@@ -22,7 +22,7 @@ const Instructions = () => {
                 </span>
             </div>
 
-            <div className="flex flex-col items-start box-border h-155 w-100 p-4 rounded-lg bg-gray-50">
+            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
                 <span className ="font-bold text-left text-5xl">
                     Scanning Guidelines
                 </span>
@@ -65,7 +65,7 @@ const Instructions = () => {
                 </span>
             </div>
 
-            <div className="flex flex-col items-start box-border h-155 w-100 p-4 rounded-lg bg-gray-50">
+            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
                 <span className ="font-bold text-left text-5xl">
                     Know Your Customization
                 </span>
