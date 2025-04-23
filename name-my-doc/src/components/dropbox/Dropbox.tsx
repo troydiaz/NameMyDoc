@@ -1,47 +1,58 @@
 import React, { useState, useRef } from 'react';
 import clsx from "clsx";
-import { gradientButtonClass } from '../styles/classNames'
+import { gradientButtonClass } from '../styles/classNames';
 
 const Dropbox: React.FC = () => {
+//   holds all uploaded files
   const [files, setFiles] = useState<File[]>([]);
+//   for box click
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+//   multiple file handling
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
+    // restrict to certaiin ctypes
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/tiff'];
+
+    // ensure files are followed
     const droppedFiles = Array.from(event.dataTransfer.files).filter(file =>
       allowedTypes.includes(file.type)
     );
+
+    // append files to list
     setFiles(prev => [...prev, ...droppedFiles]);
-  };  
+  };
+
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
 
   const handleClick = () => {
-    fileInputRef.current?.click(); 
+    fileInputRef.current?.click();
   };
 
+// Selecting files
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Return early if files are not selected
     const selectedFiles = event.target.files;
     if (!selectedFiles) return;
-  
+
+    // Filter supported files
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/tiff'];
     const filesArray = Array.from(selectedFiles);
-  
     const validFiles = filesArray.filter(file =>
       allowedTypes.includes(file.type)
     );
-  
+    
+    // Add valid files to current state
     setFiles(prev => [...prev, ...validFiles]);
   };
-  
 
   const handleClear = () => {
     const confirmClear = window.confirm("Are you sure you want to clear all uploaded files?");
-    if (confirmClear){
-        setFiles([]);
+    if (confirmClear) {
+      setFiles([]);
     }
   };
 
@@ -52,7 +63,6 @@ const Dropbox: React.FC = () => {
       onClick={handleClick}
       className="border-2 p-6 rounded-3xl w-auto bg-gray-50 text-center hover:border-gray-300 transition-all cursor-pointer"
     >
-      {/* Hidden file input */}
       <input
         type="file"
         ref={fileInputRef}
@@ -74,26 +84,28 @@ const Dropbox: React.FC = () => {
         Disclaimer: NameMyDoc is an experimental tool. Always review file names before saving.
       </p>
 
+    
       {files.length > 0 && (
         <>
+        {/* Show only when user uploads at least one file */}
           <ul className="mt-4 text-sm text-left">
             {files.map((file, index) => (
               <li key={index}>{file.name}</li>
             ))}
           </ul>
-
-          <button className={clsx(gradientButtonClass)}
+        
+        {/* Clear button, prevents from opening file opener again */}
+          <button
+            className={clsx(gradientButtonClass, "mt-4")}
             onClick={(e) => {
               e.stopPropagation();
-              handleClear();      
+              handleClear();
             }}
           >
             Clear All
           </button>
         </>
-        
       )}
-      
     </div>
   );
 };
