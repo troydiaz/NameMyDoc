@@ -1,7 +1,7 @@
 // src/components/Dropbox.tsx
 import React, { useState } from 'react';
 
-const Dropbox: React.FC = () => {
+  const Dropbox: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -18,7 +18,7 @@ const Dropbox: React.FC = () => {
     <div 
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      className="border-2 p-6 rounded-lg w-auto bg-gray-50 text-center hover:border-gray-300 transition-all"
+      className="border-2 p-6 rounded-3xl w-auto bg-gray-50 text-center hover:border-gray-300 transition-all cursor-pointer"
     >
     <div className="flex justify-center">
         <img
@@ -28,8 +28,8 @@ const Dropbox: React.FC = () => {
         />
     </div>
       {/* icon from https://www.vector4free.com/free-vectors/upload */}
-      <p className="text-gray-700">Upload your documents</p>
-      <p className="text-gray-700 font-semibold">Disclaimer: NameMyDoc is an experimental tool. Always review file names before saving.</p>
+      <p className="text-black">Upload your documents</p>
+      <p className="text-black font-semibold text-sm">Disclaimer: NameMyDoc is an experimental tool. Always review file names before saving.</p>
 
       {files.length > 0 && (
         <ul className="mt-4 text-sm text-left">
