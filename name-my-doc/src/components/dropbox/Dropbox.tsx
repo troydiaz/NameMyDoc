@@ -99,7 +99,14 @@ const Dropbox: React.FC = () => {
             Clear All
           </button>
         </>
+        
       )}
+      
+    {error && (
+        <div className="mt-4 text-red-600 font-semibold text-sm">
+            {error}
+        </div>
+    )}
     </div>
   );
 };
