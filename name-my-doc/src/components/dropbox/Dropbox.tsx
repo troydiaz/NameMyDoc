@@ -5,9 +5,7 @@ import { gradientButtonClass } from '../styles/classNames'
 const Dropbox: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string | null>(null);
 
-  
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/tiff'];
@@ -35,12 +33,6 @@ const Dropbox: React.FC = () => {
     const validFiles = filesArray.filter(file =>
       allowedTypes.includes(file.type)
     );
-  
-    if (validFiles.length < filesArray.length) {
-      setError("This app only supports PDF, JPG, and TIFF files.");
-    } else {
-      setError(null);
-    }
   
     setFiles(prev => [...prev, ...validFiles]);
   };
@@ -102,11 +94,6 @@ const Dropbox: React.FC = () => {
         
       )}
       
-    {error && (
-        <div className="mt-4 text-red-600 font-semibold text-sm">
-            {error}
-        </div>
-    )}
     </div>
   );
 };
