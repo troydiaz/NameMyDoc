@@ -5,13 +5,17 @@ import { gradientButtonClass } from '../styles/classNames'
 const Dropbox: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+  const [error, setError] = useState<string | null>(null);
 
+  
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    const droppedFiles = Array.from(event.dataTransfer.files);
-    setFiles((prev) => [...prev, ...droppedFiles]);
-  };
+    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/tiff'];
+    const droppedFiles = Array.from(event.dataTransfer.files).filter(file =>
+      allowedTypes.includes(file.type)
+    );
+    setFiles(prev => [...prev, ...droppedFiles]);
+  };  
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -24,9 +28,23 @@ const Dropbox: React.FC = () => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files;
     if (!selectedFiles) return;
-    const newFiles = Array.from(selectedFiles);
-    setFiles((prev) => [...prev, ...newFiles]);
+  
+    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/tiff'];
+    const filesArray = Array.from(selectedFiles);
+  
+    const validFiles = filesArray.filter(file =>
+      allowedTypes.includes(file.type)
+    );
+  
+    if (validFiles.length < filesArray.length) {
+      setError("This app only supports PDF, JPG, and TIFF files.");
+    } else {
+      setError(null);
+    }
+  
+    setFiles(prev => [...prev, ...validFiles]);
   };
+  
 
   const handleClear = () => {
     const confirmClear = window.confirm("Are you sure you want to clear all uploaded files?");
