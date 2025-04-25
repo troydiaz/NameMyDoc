@@ -19,7 +19,7 @@ NameMyDoc uses machine learning and natural language processing to intelligently
 - ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 ### Pretrained Model / Dataset
-- sentence-transformers/all-MiniLM-L12-v2 (Sentence-BERT)
+- [sentence-transformers/all-MiniLM-L12-v2 (Sentence-BERT)](https://www.sbert.net/docs/sentence_transformer/pretrained_models.html)
 - https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive
 
 ## Features
