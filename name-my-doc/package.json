@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
     "clsx": "^2.1.1",
+    "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lucide-react": "^0.487.0",
     "react": "^19.0.0",
