@@ -19,7 +19,7 @@ const FileList: React.FC<FileListProps> = ({ originalFiles, modifiedNames }) => 
 	};
 
 	return (
-		<div className="w-full border-2 rounded-3xl p-4 mt-6">
+		<div className="w-full border-1 rounded-3xl p-4">
 			<table className="w-full text-sm">
 				<thead>
 					<tr className="border-b">
