@@ -1,98 +1,63 @@
 const Instructions = () => {
-    return (
-        <header className ="text-black font-inter flex flex-wrap justify-center gap-3 py-15">
-            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
-                <span className ="font-bold text-left text-5xl">
-                    Ensure Correct File Type
-                </span>
-                <span>
-                    
-                </span>
-                <span className="text-base font-normal mt-4 text-left">
-                    This app supports many different file types:
-                    <li className="text-left">
-                        PDF
-                    </li>
-                    <li className="text-left">
-                        JPG/JPEG
-                    </li>
-                    <li className="text-left">
-                        TIFF
-                    </li>
-                </span>
-            </div>
+	return (
+		<header className="text-black font-inter flex flex-wrap justify-center gap-3 py-15">
+			<div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
+				<span className="font-bold text-left text-5xl">
+					Ensure Correct File Type
+				</span>
+				<span></span>
+				<span className="text-base font-normal mt-4 text-left">
+					This app currently supports one file type:
+					<li className="text-left">PDF</li>
+				</span>
+			</div>
 
-            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
-                <span className ="font-bold text-left text-5xl">
-                    Scanning Guidelines
-                </span>
+			<div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
+				<span className="font-bold text-left text-5xl">
+					Scanning Guidelines
+				</span>
 
-                <span className ="text-base font-normal mt-4 text-left">
-                    For this web app to work functionally, your scanning machine must include OCR.
-                    <br>
-                    </br>
-                    <br>
-                    </br>
-                    OCR converts printed text in documents into searchable digital text.
+				<span className="text-base font-normal mt-4 text-left">
+					For this web app to work functionally, your scanning machine must include OCR.
+					<br />
+					<br />
+					OCR converts printed text in documents into searchable digital text.
+					<br />
+					<br />
+					Ensure that you are following these scanning guidelines:
+					<li className="text-left">Scans are clean, high-contrast</li>
+					<li className="text-left">Scanning typed text</li>
+					<li className="text-left">Scans are documents with standard formatting</li>
+					<br />
+					<span className="text-left">Omit the following:</span>
+					<li className="text-left">Handwritten notes</li>
+					<li className="text-left">Blurry, skewed, dark images</li>
+				</span>
+			</div>
 
-                    <br>
-                    </br>
-                    <br>
-                    </br>
-                    Ensure that you are following these scanning guidelines:
-                    <li className="text-left">
-                        Scans are clean, high-contrast
-                    </li>
-                    <li className="text-left">
-                        Scanning typed text
-                    </li>
-                    <li className="text-left">
-                       Scans are documents with standard formatting
-                    </li>
-                    
-                    <br>
-                    </br>
-                    
-                    <span className="text-left">
-                        Omit the following:
-                    </span>
-                    <li className="text-left">
-                       Handwritten notes
-                    </li>
-                    <li className="text-left">
-                       Blurry, skewed, dark images
-                    </li>
-                </span>
-            </div>
+			<div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
+				<span className="font-bold text-left text-5xl">
+					Know Your Customization
+				</span>
 
-            <div className="flex flex-col w-[22rem] p-4 rounded-lg bg-gray-50">
-                <span className ="font-bold text-left text-5xl">
-                    Know Your Customization
-                </span>
-                
-                
-                <span className ="text-base font-normal mt-4">
-                    There are available presets for your scans.
-                </span>
-                <br>
-                    </br>
-                    
-                <span className ="text-left">
-                    Prefix is a fixed word that will be added in front of the name of your uploads.
-                </span>
-                <br>
-                    </br>
-                <span className ="text-left">
-                    Suffix works the same, with the word being appended to the name.
-                </span>
-                <br>
-                    </br>
-                <span className ="text-left">
-                    Delimiters are what separate the prefix and suffix from the name generated by the model. Commas, semicolon, quotes, braces, pipes, slashes, and spaces are the options. For example, using dashes a name could be Lakers-lebron-OnFive.
-                </span>
-            </div>
-        </header>
-    );
+				<span className="text-base font-normal mt-4">
+					There are available presets for your scans.
+				</span>
+				<br />
+				<span className="text-left">
+					Prefix is a fixed word that will be added in front of the name of your uploads.
+				</span>
+				<br />
+				<span className="text-left">
+					Suffix works the same, with the word being appended to the name.
+				</span>
+				<br />
+				<span className="text-left">
+					Delimiters are what separate the prefix and suffix from the name generated by the model. Commas, semicolon, quotes, braces, pipes, slashes, and spaces are the options. For example, using dashes a name could be Lakers-lebron-OnFive.
+				</span>
+			</div>
+		</header>
+	);
 }
 
 export default Instructions
