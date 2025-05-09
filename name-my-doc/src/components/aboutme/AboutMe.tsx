@@ -9,7 +9,7 @@ const About = () => {
 					<div>
 						<img
 							className="w-72 md:w-80 rounded-2xl"
-							src="/troy.jpg"
+							src="/troy.webp"
 							alt="Troy Diaz"
 						/>
 					</div>
