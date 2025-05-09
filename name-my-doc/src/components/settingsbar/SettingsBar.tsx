@@ -18,7 +18,7 @@ const SettingsBar: React.FC<SettingsBarProps> = ({
 	setDelimiter,
 }) => {
 	return (
-		<div className="flex flex-col justify-center gap-4 p-4">
+		<div className="flex flex-col items-center justify-center gap-4 p-4 w-full">
 			{/* Prefix */}
 			<div className="flex items-center gap-2">
 				<label className="w-24 text-sm font-medium">Prefix:</label>
