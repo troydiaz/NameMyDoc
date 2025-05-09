@@ -40,7 +40,7 @@ const Instructions = () => {
 					Know Your Customization
 				</span>
 
-				<span className="text-base font-normal mt-4">
+				<span className="text-base font-normal mt-4 text-left">
 					There are available presets for your scans.
 				</span>
 				<br />
