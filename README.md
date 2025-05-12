@@ -1,8 +1,6 @@
 # NameMyDoc
 
-**AI-powered web app to automatically rename documents based on their content.**
-
-NameMyDoc uses machine learning and natural language processing to intelligently classify and rename scanned documents, making document management faster and smarter.
+NameMyDoc uses machine learning and natural language processing to intelligently classify and rename scanned documents, making document management faster and smarter. Through Sentence-BERT, a transformer-based model that generates semantic embeddings, it accurately interprets document content to ensure precise renaming. This solution was developed to help organizations reduce manual work and improve efficiency.
 
 **Link:** [https://name-my-doc.vercel.app/](https://name-my-doc.vercel.app/)
 
