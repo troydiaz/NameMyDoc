@@ -12,12 +12,13 @@ Dependencies:
 import os
 import random
 import csv
+import torch
 from datetime import datetime
 
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 from sentence_transformers import SentenceTransformer, InputExample, losses, evaluation
-
+from sentence_transformers.evaluation import EarlyStoppingCallback
 
 def load_and_split(data_path: str, val_ratio: float = 0.1, max_examples: int = None, seed: int = 42):
     """
@@ -52,27 +53,31 @@ def load_and_split(data_path: str, val_ratio: float = 0.1, max_examples: int = N
 
 def evaluate_model(model: SentenceTransformer, val_examples: list, batch_size: int = 16):
     """
-    Evaluates model on precision@1 using retrieval-based similarity.
-    :param model: Trained SentenceTransformer model.
-    :param val_examples: Validation examples with texts and titles.
-    :param batch_size: Inference batch size.
-    :returns: Tuple (top1_precision, full_metrics_dict)
+    Compute precision@1 for validation set using IR retrieval evaluation.
+    Requires corpus and queries to be dictionaries with string keys.
     """
-    queries = [ex.texts[0] for ex in val_examples]
-    corpus = [ex.texts[1] for ex in val_examples]
-    relevant = {i: [i] for i in range(len(val_examples))}
+    queries = {str(i): ex.texts[0] for i, ex in enumerate(val_examples)}
+    corpus = {str(i): ex.texts[1] for i, ex in enumerate(val_examples)}
+    relevant = {str(i): [str(i)] for i in range(len(val_examples))}
 
     evaluator = evaluation.InformationRetrievalEvaluator(
-        queries, corpus, relevant, name="val_eval",
-        batch_size=batch_size, show_progress_bar=False
+        queries=queries,
+        corpus=corpus,
+        relevant_docs=relevant,
+        name="val_eval",
+        batch_size=batch_size,
+        show_progress_bar=False
     )
     metrics = evaluator(model)
     return metrics.get("precision@1", 0.0), metrics
 
 
+
 def main():
+    print("CUDA Available:", torch.cuda.is_available())
+    print("CUDA Device Name:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "N/A")
     # ======= Configurable Parameters =======
-    DATA_PATH = "legal_text_classification.csv"
+    DATA_PATH = r"C:\Users\troyk\OneDrive\Desktop\dataset\legal_text_classification.csv"
     OUTPUT_DIR = "fine_tuned_minilm_legal"
     LOG_FILE = "training_log.csv"
 
@@ -104,16 +109,20 @@ def main():
     print(f"Initial precision@1: {initial_top1:.4f}")
 
     # ======= Setup evaluator for validation during training =======
-    val_queries = [ex.texts[0] for ex in val_examples]
-    val_corpus = [ex.texts[1] for ex in val_examples]
-    val_relevant = {i: [i] for i in range(len(val_examples))}
+    val_queries = {str(i): ex.texts[0] for i, ex in enumerate(val_examples)}
+    val_corpus = {str(i): ex.texts[1] for i, ex in enumerate(val_examples)}
+    val_relevant = {str(i): [str(i)] for i in range(len(val_examples))}
 
     evaluator = evaluation.InformationRetrievalEvaluator(
-        val_queries, val_corpus, val_relevant,
+        queries=val_queries,
+        corpus=val_corpus,
+        relevant_docs=val_relevant,
         name="val_during_train",
         batch_size=BATCH_SIZE,
         show_progress_bar=True
     )
+
+    callbacks = [EarlyStoppingCallback(evaluator=evaluator, patience=PATIENCE, delta=DELTA)]
 
     # ======= Begin training =======
     model.fit(
@@ -125,10 +134,9 @@ def main():
         output_path=OUTPUT_DIR,
         save_best_model=True,
         use_amp=True,
-        early_stopping_enabled=True,
-        early_stopping_patience=PATIENCE,
-        early_stopping_delta=DELTA
+        callback=callbacks
     )
+
 
     # ======= Final Evaluation =======
     final_top1, final_metrics = evaluate_model(model, val_examples)
